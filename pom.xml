@@ -8,8 +8,8 @@
   <name>example</name>
   <url>http://maven.apache.org</url>
   <properties>
-	<mvn.compiler.target>1.8</mvn.compiler.target>
-	 <mvn.compiler.source>1.8</mvn.compiler.source>
+	<maven.compiler.target>1.8</maven.compiler.target>
+	 <maven.compiler.source>1.8</maven.compiler.source>
   </properties>
   <dependencies>
     <dependency>
