@@ -1,26 +1,19 @@
 pipeline{
   agent any
   stages{
-    stage('checkout'){
+    stage("parallel execution"){
       steps{
-        echo 'checkout'
+    parallel(
+      a:{
+      bat 'mvn install'
       }
-    }
-    stage ('test'){
-      steps{
-        bat 'mvn test'
+      b:{
+      bat 'mvn clean'
       }
-    }
-    stage('package'){
-      steps{
-      bat 'mvn package'
-    }
-    }
-    stage('consolidate result'){
-      steps{
-      input ('Do you want to continue')
-      junit '**/target/surefire-reports/TEST-*.xml'
-      archiveArtifacts 'target/*.jar'
+      c:{
+        bat 'mvn package'
+      }
+      )
       }
     }
   }
